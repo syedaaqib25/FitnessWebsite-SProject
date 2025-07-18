@@ -9,19 +9,58 @@
     <title>Register</title>
 </head>
 
-<body class="bckbody">
-    <div class="bkbody"><br>
-        <h1>Register Now</h1>
-        <form action="./submit.html">
-            <input type="text" name="" id="" placeholder="Full Name" maxlength="20" minlength="3">
-            <input type="email" name="" id="" required placeholder="Email"><br>
-            <input type="password" name="" id="" required placeholder="Password"><br>
-            <input type="number" name="" id="" placeholder="Age" ><br>
-            <label for="gender" style=" position: relative; right: 11rem;">Gender</label><br><span style=" position: relative; right: 4rem; top: 11px;" >Male</span><input type="radio" name="radio">
-            <span style=" position: relative; right: 4rem; top: 11px;">Female</span><input type="radio" name="radio"><br><br>
-            <input type="submit" name="" id="" value="Register"  class="sub">
-        </form>
-    </div>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="site-title">
+                Fitness Club<br>
+                <span class="highlight">GoToJim</span>
+            </h1>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./Nutrition.html">Nutrition</a></li>
+                    <li><a href="./Timetable.html">Timetable</a></li>
+                    <li><a href="./Traning.html">Traning</a></li>
+                    <li><a href="./Gallery.html">Gallery</a></li>
+                    <li><a href="./AboutUs.html">AboutUs</a></li>
+                    <li><a href="./Register.html">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="register-section">
+            <div class="register-form-container">
+                <h2 class="register-title">Register Now</h2>
+                <form action="./submit.html" class="register-form">
+                    <input type="text" name="fullname" placeholder="Full Name" maxlength="20" minlength="3" required>
+                    <input type="email" name="email" required placeholder="Email">
+                    <input type="password" name="password" required placeholder="Password">
+                    <input type="number" name="age" placeholder="Age" min="1" max="120">
+                    <div class="gender-group">
+                        <label for="gender">Gender:</label>
+                        <label><input type="radio" name="gender" value="male"> Male</label>
+                        <label><input type="radio" name="gender" value="female"> Female</label>
+                    </div>
+                    <input type="submit" value="Register" class="cta-btn">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="./index.html">Home</a>
+                <a href="./Gallery.html">Gallery</a>
+                <a href="./AboutUs.html">AboutUs</a>
+                <a href="./Register.html">Help</a>
+            </div>
+            <p class="copyright">&copy;2022-2023 GoToJim</p>
+        </div>
+    </footer>
 </body>
 
 </html>

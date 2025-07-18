@@ -7,52 +7,80 @@
     <link rel="stylesheet" href="./style.css">
     <title>Nutrition</title>
 </head>
-<body class="bckbody">
-    <div>
-        <div class="navbar">
-            <header>
-                <h1 style="margin-top:0px; padding-left: 10px;">Fitness Club <br> <span style="color:rgb(55, 34, 192); position: relative; left:6rem;">GoToJim</span></h1>
-                <nav>
-                    <ul class="ulclass">
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./Nutrition.html">Nutrition</a></li>
-                        <li><a href="./Timetable.html">Timetable</a></li>
-                        <li><a href="./Traning.html">Traning</a></li>
-                        <li><a href="./Gallery.html">Gallery</a></li>
-                        <li><a href="./AboutUs.html">AboutUs</a></li>
-                        <li><a href="./Register.html">Register</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <hr>
-
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="site-title">
+                Fitness Club<br>
+                <span class="highlight">GoToJim</span>
+            </h1>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./Nutrition.html">Nutrition</a></li>
+                    <li><a href="./Timetable.html">Timetable</a></li>
+                    <li><a href="./Traning.html">Traning</a></li>
+                    <li><a href="./Gallery.html">Gallery</a></li>
+                    <li><a href="./AboutUs.html">AboutUs</a></li>
+                    <li><a href="./Register.html">Register</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div>
-            <div style="width: 50%; color:#5df666; margin: 2rem;">
-               <h2 style="color:rgba(4, 192, 255, 0.922) ;"> Eat real, unprocessed food,
-                as close to nature as possible,
-                Eat with gratitude and a positive state of mind.
-                Pretend the modern supermarket does not exist.
-                Choose foods that could be grown, hunted or gathered -
-                nothing refined or highly processed.</h2>
-                <h3>
-
-                    Support local producers when possible.
-                    Eat animals, seafood, vegetables, nuts, seeds, and fruits.
-                    Eat healthy fats from pastured animals, seafood,
-                    coconut, avocado, olives, and cold-pressed oil.
-                    Drink water. <br>
-    
-                    Incorporate traditional, nutrient-dense foods:
-                    fermented vegetables, organ meats, and homemade bone broths.
-                    Above all, ditch the “gurus” and “diets.”
-                    Get back to basics. Connect with your body.
-                    Fuel with Real Food.
-                </h3>
-                 
+    <main>
+        <section class="nutrition-section">
+            <h2 class="nutrition-title">Eat Real, Fuel Well</h2>
+            <div class="nutrition-content">
+                <p>Eat real, unprocessed food, as close to nature as possible. Eat with gratitude and a positive state of mind. Pretend the modern supermarket does not exist. Choose foods that could be grown, hunted or gathered—nothing refined or highly processed.</p>
+                <ul class="nutrition-list">
+                    <li>Support local producers when possible.</li>
+                    <li>Eat animals, seafood, vegetables, nuts, seeds, and fruits.</li>
+                    <li>Eat healthy fats from pastured animals, seafood, coconut, avocado, olives, and cold-pressed oil.</li>
+                    <li>Drink water.</li>
+                    <li>Incorporate traditional, nutrient-dense foods: fermented vegetables, organ meats, and homemade bone broths.</li>
+                    <li>Above all, ditch the “gurus” and “diets.” Get back to basics. Connect with your body. Fuel with Real Food.</li>
+                </ul>
             </div>
+        </section>
+        <section class="tips-section">
+            <h2 class="nutrition-title">Fitness Tips</h2>
+            <div id="fitness-tips" class="nutrition-content">
+                <!-- Tips will be generated here by Gemini API integration -->
+                <p>Loading fitness tips...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="./index.html">Home</a>
+                <a href="./Gallery.html">Gallery</a>
+                <a href="./AboutUs.html">AboutUs</a>
+                <a href="./Register.html">Help</a>
+            </div>
+            <p class="copyright">&copy;2022-2023 GoToJim</p>
         </div>
-    </div>
+    </footer>
+    <script>
+        // Fetch fitness tips from your backend Gemini API endpoint
+        async function fetchFitnessTips() {
+            try {
+                const response = await fetch('/api/gemini-tips'); // Replace with your actual endpoint
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+                // Expecting data.tips to be an array of strings
+                if (Array.isArray(data.tips)) {
+                    document.getElementById('fitness-tips').innerHTML = `<ul>` + data.tips.map(tip => `<li>${tip}</li>`).join('') + `</ul>`;
+                } else {
+                    document.getElementById('fitness-tips').innerHTML = `<p>No tips available.</p>`;
+                }
+            } catch (error) {
+                document.getElementById('fitness-tips').innerHTML = `<p>Could not load tips. Please try again later.</p>`;
+            }
+        }
+        fetchFitnessTips();
+    </script>
 </body>
 </html>
